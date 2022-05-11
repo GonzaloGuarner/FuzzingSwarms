@@ -2,7 +2,7 @@
 
 The Fuzzing Swarms are a FIS-based swarm robotics system optimized through the use of PSO. In this project the Fuzzing Swarms are developed and trained to conduct a deployment task in an unknown environment.
 
-####Here I will detail the:
+Here I will detail the:
 
 * Main scripts and their utilities
 
@@ -33,9 +33,13 @@ RandomWalk.m was used for comparison purpouses with a random walk approach.
 ## Necessary toolbox script changes
 
 To pass custom arenas to our multi-robot environment, some editions are necessary in the 
-MultiRobotEnv script (found in the Mobile Robotics Simulation Toolbox).
+MultiRobotEnv script. You can find in the Mobile Robotics Simulation Toolbox or acess it through
+the fuzzing swarms scripts, as it is referenced at the start.
 
-Declare as properties (Nontunable) customMap and hasCustomMap
+Declare as properties (Nontunable) customMap and hasCustomMap.
+
+> customMap;
+> hasCustomMap;
 
 
 Line 171 change:
@@ -46,10 +50,10 @@ for:
 
 > if obj.hasCustomMap
 
-obj.map = obj.customMap;
+> obj.map = obj.customMap;
 
-else
+> else
 	
-obj.map = internal.createMapFromName(obj.mapName);
+> obj.map = internal.createMapFromName(obj.mapName);
 
-end
+> end

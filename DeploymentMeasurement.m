@@ -6,8 +6,8 @@
 
 %% Create and configure a multi-robot environment
 % Set simulation parameters
-totalIterations = 200;
-totalRuns = 50;
+totalIterations = 300;
+totalRuns = 25;
 R_c = 8; % Agent communication radius (distance unit)
 R_s = 3; % Agent surveillance/sensing radius (distance unit)
 maxSpeed = 0.3;% (distance/iteration)
@@ -35,7 +35,7 @@ env.plotSensorLines = false; % So the sensor lines don't dominate the visuals
 env.showRobotIds = false; % Idem with robot IDs
 
 % Set our custom map (a bin. occupancy grid) from a csv file
-mapMatrix = table2array(readtable('Arenas\ArenaSimpleThick.csv'));
+mapMatrix = table2array(readtable('Arenas\ArenaConvexThick.csv'));
 env.hasCustomMap = true;
 env.customMap = occupancyMap(mapMatrix);
 
@@ -44,7 +44,7 @@ env.customMap = occupancyMap(mapMatrix);
 freeCells = getFreeCells(mapMatrix); 
 
 % Obtain Fuzzy Inference System. Our agents' controllers
-swarmAgentsFIS = readfis('FuzzyInferenceSystems\Compound\Main\MFLC.fis');
+swarmAgentsFIS = readfis('FuzzyInferenceSystems\Compound\Main\newTFLC.fis');
 swarmAgentsObst = readfis('FuzzyInferenceSystems\ObstAvoidance\FuzzyAgentsObst3.fis');
 
 %% Initialization
