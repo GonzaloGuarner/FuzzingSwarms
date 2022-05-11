@@ -38,16 +38,18 @@ the fuzzing swarms scripts, as it is referenced at the start.
 
 Declare as properties (Nontunable) customMap and hasCustomMap.
 
-> customMap;
-> hasCustomMap;
-
+```
+customMap;
+hasCustomMap;
+```
 
 Line 171 change:
-
-> obj.map = internal.createMapFromName(obj.mapName);            
+```
+obj.map = internal.createMapFromName(obj.mapName);
+```            
 
 for:
-
+```
 > if obj.hasCustomMap
 
 > obj.map = obj.customMap;
@@ -57,3 +59,4 @@ for:
 > obj.map = internal.createMapFromName(obj.mapName);
 
 > end
+```
