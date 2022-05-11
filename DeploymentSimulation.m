@@ -1,6 +1,7 @@
-%% Algorithm Fuzzy Logic
-% 
-%% Last modified on 08/07/2021
+%% DeploymentSimulation.m is the simplest fuzzing swarms scripts, it 
+% simulates a swarm deployment task and shows the behaviour of the agents 
+% in the environment of your choice.
+% Last modified on 08/07/2021
 
 
 %% Create and configure a multi-robot environment
@@ -10,6 +11,7 @@ R_c = 8; % Agent communication radius (distance unit)
 R_s = 3; % Agent surveillance/sensing radius (distance unit)
 maxSpeed = 0.3;% (distance/iteration)
 calculateAreaOverTime = true; % The simulation returns area over time if true
+showVisuals = true; % Enable this for a visual animation of the env.
 
 % Set environment parameters
 numRobots = 30;
@@ -89,9 +91,12 @@ for idx = 1:totalIterations %(time units)
     poses= poses + vel;
     
     % Update the environment
-    env(1:numRobots, poses); % Use this for a visual animation of the env.
-    %env.Poses = poses; % Alternatively use this for a faster simulation
-    
+    if showVisuals
+        env(1:numRobots, poses); % Use this for a visual animation of the env.
+    else
+        env.Poses = poses; % Alternatively use this for a faster simulation
+    end 
+
     xlim([11 36]);   % Without this, axis resizing can slow things down
     ylim([11 36]); 
     

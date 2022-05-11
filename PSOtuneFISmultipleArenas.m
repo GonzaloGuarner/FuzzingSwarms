@@ -1,6 +1,8 @@
-%% Algorithm Fuzzy Logic
-% 
-%% Last modified on 08/07/2021
+%% PSOtuneFISmultipleArenas.m is the core of this project. This script optimizes a 
+% fuzzy inference system through particle swarm optimization. The particles in PSO 
+% represent a type of FIS, and their fitness is obtained through their performance 
+% in a deployment task, across multiple arenas.
+% Last modified on 08/07/2021
 
 
 
@@ -14,7 +16,7 @@ env.plotSensorLines = false; % So the sensor lines don't dominate the visuals
 env.showRobotIds = false; % Idem with robot IDs
 env.hasCustomMap = true;
 
-% Set our custom map (a bin. occupancy grid) from a csv file
+% Set our custom arenas (a bin. occupancy grid) from a csv file
 mapMatrixArray{1} = table2array(readtable('Arenas\ArenaSimpleThick.csv'));
 mapMatrixArray{2} = table2array(readtable('Arenas\ArenaConvexThick.csv'));
 mapMatrixArray{3} = table2array(readtable('Arenas\ArenaCorridorTweakThick.csv'));

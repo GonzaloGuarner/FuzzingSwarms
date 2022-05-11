@@ -1,17 +1,20 @@
-%% Algorithm Fuzzy Logic
-% 
-%% Last modified on 08/07/2021
+%% DeploymentMeasurement.m is an extension to DeploymentSimulation, it's main 
+% goal being measuring performance across several simulations or 'runs'. 
+% Support to sensor noise and agent failure is also implemented.
+% Last modified on 08/07/2021
 
 
 %% Create and configure a multi-robot environment
 % Set simulation parameters
 totalIterations = 200;
-totalRuns = 1;
+totalRuns = 50;
 R_c = 8; % Agent communication radius (distance unit)
 R_s = 3; % Agent surveillance/sensing radius (distance unit)
 maxSpeed = 0.3;% (distance/iteration)
 calculateAreaOverTime = true; % The simulation returns area over time if true
 plotAreaOverTime = true; % Generate an AoT plot at the end of the simulation
+showVisuals = false; % Enable this for a visual animation of the env.
+
 
 % Noise Parameters
 simulateNoise = false; % Generate noise in inter-robot distance detections
@@ -134,8 +137,11 @@ for runIdx = 1:totalRuns
         poses= poses + vel;
         
         % Update the environment
-        env(1:numRobots, poses); % Use this for a visual animation of the env.
-        %env.Poses = poses; % Alternatively use this for a faster simulation
+        if showVisuals
+            env(1:numRobots, poses); % Use this for a visual animation of the env.
+        else
+            env.Poses = poses; % Alternatively use this for a faster simulation
+        end 
         
         xlim([11 36]);   % Without this, axis resizing can slow things down
         ylim([11 36]); 
