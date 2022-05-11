@@ -50,13 +50,13 @@ obj.map = internal.createMapFromName(obj.mapName);
 
 for:
 ```
-> if obj.hasCustomMap
+if obj.hasCustomMap
 
-> obj.map = obj.customMap;
+obj.map = obj.customMap;
 
-> else
+else
 	
-> obj.map = internal.createMapFromName(obj.mapName);
+obj.map = internal.createMapFromName(obj.mapName);
 
-> end
+end
 ```
