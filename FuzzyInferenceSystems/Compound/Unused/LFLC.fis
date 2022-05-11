@@ -1,0 +1,62 @@
+[System]
+Name='SaturdayAgentsOut'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=19
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='distance d'
+Range=[-1 8.5]
+NumMFs=6
+MF1='LN':'trimf',[-1 0.5 2]
+MF2='N':'trimf',[-0.952046034517066 5.80489730758516 5.94909040131215]
+MF3='SN':'trimf',[4 5 6]
+MF4='SP':'trimf',[5 5.5 6]
+MF5='P':'trimf',[5.5 6 6.5]
+MF6='LP':'trimf',[6 6.5 8.5]
+
+[Input2]
+Name='distance dobst'
+Range=[-0.3 1.7]
+NumMFs=3
+MF1='N':'trimf',[0 0.2 0.4]
+MF2='SN':'trimf',[0.148606566790126 0.781834552033533 0.951360920825882]
+MF3='Z':'trimf',[0.6 1.25 1.5]
+
+[Output1]
+Name='weight w'
+Range=[-1.1 1.1]
+NumMFs=5
+MF1='FastN':'trimf',[-1 -0.9 -0.8]
+MF2='MediumN':'trimf',[-0.8 -0.45 -0.1]
+MF3='SlowN':'trimf',[-0.2 -0.1 0]
+MF4='SlowP':'trimf',[0 0.1 0.2]
+MF5='MediumP':'trimf',[0.23 0.45 1]
+
+[Rules]
+4 3, 2 (1) : 1
+3 3, 3 (1) : 1
+6 0, 3 (1) : 1
+6 2, 2 (1) : 1
+2 0, 1 (1) : 1
+2 1, 3 (1) : 1
+3 1, 1 (1) : 1
+4 1, 5 (1) : 1
+3 0, 1 (1) : 1
+5 0, 2 (1) : 1
+0 2, 3 (1) : 1
+6 3, 1 (1) : 1
+4 2, 5 (1) : 1
+1 0, 3 (1) : 1
+3 2, 3 (1) : 1
+5 3, 1 (1) : 1
+5 1, 2 (1) : 1
+1 1, 2 (1) : 1
+6 1, 1 (1) : 1
